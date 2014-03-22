@@ -1,0 +1,521 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-21 22:32:05 +0000
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'bin/rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.2) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.2) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__928823139__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (91.0ms)
+  [1m[36m (93.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (99.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20131224194730)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar(255), "uid" varchar(255), "name" varchar(255), "oauth_token" varchar(255), "oauth_secret" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131224194730"]]
+  [1m[36m (93.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-21 22:32:54 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  [1m[35mUser Load (13.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered home/show.html.erb within layouts/application (55.0ms)
+Completed 500 Internal Server Error in 153ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb__695747625_31249752'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (82.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-21 22:37:53 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  [1m[35mUser Load (14.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered home/show.html.erb within layouts/application (61.0ms)
+Completed 500 Internal Server Error in 204ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb___125023173_29910528'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (78.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-21 22:37:57 +0000
+Processing by HomeController#show as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered home/show.html.erb within layouts/application (44.0ms)
+Completed 500 Internal Server Error in 55ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb___125023173_29910528'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (70.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-21 22:39:01 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  [1m[35mUser Load (10.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered home/show.html.erb within layouts/application (62.0ms)
+Completed 500 Internal Server Error in 143ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb___466688095_32661444'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (74.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-21 22:42:49 +0000
+Processing by HomeController#show as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered home/show.html.erb within layouts/application (12.0ms)
+Completed 500 Internal Server Error in 23ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb___466688095_32661444'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (67.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-21 22:43:04 +0000
+Processing by HomeController#show as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered home/show.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 16ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=2):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb___466688095_32661444'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (68.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-21 22:43:08 +0000
+Processing by HomeController#show as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered home/show.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 16ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=2):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb___466688095_32661444'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (82.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-21 22:43:12 +0000
+Processing by HomeController#show as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered home/show.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 17ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=2):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb___466688095_32661444'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (76.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-21 22:44:33 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  [1m[35mUser Load (11.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered home/show.html.erb within layouts/application (73.0ms)
+Completed 500 Internal Server Error in 171ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb___717881098_32198196'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (75.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-22 00:41:45 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  [1m[35mUser Load (12.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered home/show.html.erb within layouts/application (69.0ms)
+Completed 500 Internal Server Error in 177ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb___545994275_29329752'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (62.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-22 00:43:38 +0000
+Processing by HomeController#show as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered home/show.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 21ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb___545994275_29329752'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (67.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-22 00:45:03 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  [1m[35mUser Load (11.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered home/show.html.erb within layouts/application (40.0ms)
+Completed 500 Internal Server Error in 141ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with id=1):
+  app/controllers/application_controller.rb:6:in `current_user'
+  app/views/home/show.html.erb:1:in `_app_views_home_show_html_erb___438091531_31941384'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (55.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-22 18:37:16 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendered home/show.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 7220ms (Views: 7157.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:25 +0000
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:25 +0000
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:25 +0000
+
+
+Started GET "/assets/tweets.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:25 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:25 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:25 +0000
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:25 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:25 +0000
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:25 +0000
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:25 +0000
+
+
+Started GET "/assets/tweets.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:25 +0000
+
+
+Started GET "/auth/twitter" for 127.0.0.1 at 2014-03-22 18:37:29 +0000
+
+
+Started GET "/auth/twitter/callback?oauth_token=CJRdBBFsvK4i1yoXWMzuZQmAYjhv1rQ0WVWFZjwCQs&oauth_verifier=wISXZWKA7SGE4WbyDKouYuNXuygOmXUIeSIR7oRjA" for 127.0.0.1 at 2014-03-22 18:37:34 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"oauth_token"=>"CJRdBBFsvK4i1yoXWMzuZQmAYjhv1rQ0WVWFZjwCQs", "oauth_verifier"=>"wISXZWKA7SGE4WbyDKouYuNXuygOmXUIeSIR7oRjA", "provider"=>"twitter"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."provider" = 'twitter' AND "users"."uid" = '104530869' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (28.0ms)[0m  INSERT INTO "users" ("created_at", "name", "oauth_secret", "oauth_token", "provider", "uid", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Sat, 22 Mar 2014 18:37:36 UTC +00:00], ["name", "khushal"], ["oauth_secret", "UWYk13H2egWESZjcOd7RfB4BGuPiuIk7FDevYZ85QZZVt"], ["oauth_token", "104530869-eH4dtBYKv715t86K0vzLf2zAWLEHmrkt7YoZ21G4"], ["provider", "twitter"], ["uid", "104530869"], ["updated_at", Sat, 22 Mar 2014 18:37:36 UTC +00:00]]
+  [1m[36m (136.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 241ms (ActiveRecord: 165.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+Processing by HomeController#show as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered home/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 38ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+
+
+Started GET "/assets/tweets.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+
+
+Started GET "/assets/tweets.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:36 +0000
+
+
+Started GET "/tweets/new" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+Processing by TweetsController#new as HTML
+  Rendered tweets/new.html.erb within layouts/application (38.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 70ms (Views: 66.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+
+
+Started GET "/assets/tweets.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+
+
+Started GET "/assets/tweets.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:39 +0000
+
+
+Started POST "/tweets" for 127.0.0.1 at 2014-03-22 18:37:44 +0000
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1OawGV48C2RsL2ZIYv3erV0dpAFRyPVEDwt1+3Vwf8g=", "tweet"=>{"message"=>"Test Tweet"}, "commit"=>"Send Tweet"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered tweets/create.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 1842ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:46 +0000
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:46 +0000
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:46 +0000
+
+
+Started GET "/assets/tweets.css?body=1" for 127.0.0.1 at 2014-03-22 18:37:46 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:46 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:46 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:46 +0000
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:46 +0000
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:46 +0000
+
+
+Started GET "/assets/tweets.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:46 +0000
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-22 18:37:47 +0000
+
+
+Started GET "/tweets/new" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+Processing by TweetsController#new as HTML
+  Rendered tweets/new.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 63ms (Views: 59.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+
+
+Started GET "/assets/tweets.css?body=1" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+
+
+Started GET "/assets/tweets.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:25 +0000
+
+
+Started POST "/tweets" for 127.0.0.1 at 2014-03-22 18:38:37 +0000
+Processing by TweetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1OawGV48C2RsL2ZIYv3erV0dpAFRyPVEDwt1+3Vwf8g=", "tweet"=>{"message"=>"#dfdfo9geJHKoelkrnvs'ldf[OJOho"}, "commit"=>"Send Tweet"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered tweets/create.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 778ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-22 18:38:38 +0000
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2014-03-22 18:38:38 +0000
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-03-22 18:38:38 +0000
+
+
+Started GET "/assets/tweets.css?body=1" for 127.0.0.1 at 2014-03-22 18:38:38 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:38 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:38 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:38 +0000
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:38 +0000
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:39 +0000
+
+
+Started GET "/assets/tweets.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:39 +0000
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-22 18:38:39 +0000
