@@ -1,4 +1,5 @@
 TwitterExample::Application.routes.draw do
+  get "userfeed/create"
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'

@@ -20,4 +20,20 @@ class User < ActiveRecord::Base
     
     client.update(tweet)
   end
+
+  def get_timeline()
+   client = Twitter::REST::Client.new do |config|
+   config.consumer_key        = Rails.application.config.twitter_key
+   config.consumer_secret     = Rails.application.config.twitter_secret
+   config.access_token        = oauth_token
+   config.access_token_secret = oauth_secret
+    end
+    
+    # read user's timeline by id
+    #timeline = client.user_timeline id
+
+    # read user's timeline of yours
+    your_timeline = client.user_timeline
+    return your_timeline
+  end
 end

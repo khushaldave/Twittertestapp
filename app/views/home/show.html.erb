@@ -1,6 +1,18 @@
 <% if !current_user.nil? %>
     <p>Click The link below to send a tweet.</p>
     <%= link_to "Send a Tweet", new_tweet_path %>
+    <table>
+  <tr>
+    <th>Tweet</th>
+  </tr>
+ 
+    <% @user_timeline.each do |tweet| %>
+  <tr><td>    <%=tweet.text%></td></tr>
+
+<%end%>
 <% else %>
     <p>You must log in to send a tweet.</p>
 <% end %>
+
+
+ 
