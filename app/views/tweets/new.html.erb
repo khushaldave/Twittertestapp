@@ -3,4 +3,8 @@
     <%= f.text_field :message %>
     <%= f.submit "Send Tweet" %>
   <% end %>
+  <%= form_for :searchtweet, url: tweets_search_path, method: :post do |t| %>
+    <%= t.text_field :hashtag %>
+    <%= t.submit "Search Tweets" %>
+  <% end %>
 </p>

@@ -1,0 +1,10 @@
+<table>
+  <tr>
+    <th>Tweet</th>
+    <th>Source</th>
+  </tr>
+ 
+    <% @tweet.each do |tweets| %>
+  <tr><td>    <%=tweets.user["location"]%></td></tr>
+<tr><td> <%=tweets.text%> </td></tr>
+<%end%>

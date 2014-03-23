@@ -4,12 +4,17 @@
     <table>
   <tr>
     <th>Tweet</th>
+    <th>Source</th>
   </tr>
  
     <% @user_timeline.each do |tweet| %>
-  <tr><td>    <%=tweet.text%></td></tr>
-
+  <tr><td>    <%=tweet.user["location"]%></td></tr>
+<tr><td>    <%=tweet.text%></td></tr>
 <%end%>
+
+ 
+
+
 <% else %>
     <p>You must log in to send a tweet.</p>
 <% end %>

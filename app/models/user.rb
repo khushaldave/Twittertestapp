@@ -28,12 +28,31 @@ class User < ActiveRecord::Base
    config.access_token        = oauth_token
    config.access_token_secret = oauth_secret
     end
-    
-    # read user's timeline by id
-    #timeline = client.user_timeline id
-
-    # read user's timeline of yours
-    your_timeline = client.user_timeline
+   your_timeline = client.home_timeline
     return your_timeline
   end
+
+def search(hashtag)
+   client = Twitter::REST::Client.new do |config|
+   config.consumer_key        = Rails.application.config.twitter_key
+   config.consumer_secret     = Rails.application.config.twitter_secret
+   config.access_token        = oauth_token
+   config.access_token_secret = oauth_secret
+    end
+    tweets = client.search(hashtag,{})
+    return tweets
+  end
+
+
+def get_followers()
+   client = Twitter::REST::Client.new do |config|
+   config.consumer_key        = Rails.application.config.twitter_key
+   config.consumer_secret     = Rails.application.config.twitter_secret
+   config.access_token        = oauth_token
+   config.access_token_secret = oauth_secret
+    end
+    your_followers = client.followers
+    return your_followers
+  end
+
 end

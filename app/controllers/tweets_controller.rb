@@ -9,4 +9,14 @@ class TweetsController < ApplicationController
   def twitter_params
     params.require(:tweet).permit(:message)
   end
+
+  def search
+  	@tweet=current_user.search(tweet_params[:hashtag])
+  end
+
+
+  def tweet_params
+    params.require(:searchtweet).permit(:hashtag)
+  end
+  
 end
