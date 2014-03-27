@@ -2,21 +2,74 @@
 <html>
   <head>
     <title>Twitter Auth Example App</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+     <!-- Bootstrap -->
+    <link href="css/" rel="stylesheet">
+    <%= javascript_include_tag "jquery-1.11.0.min.js", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "bootstrap.min.css", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "bootstrap.min.js", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div>
-      <% if current_user %>
-        Signed in as <strong><%= current_user.name %>&nbsp;<%= current_user.uid %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
+   <div>
+  <div class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">TweetGeek</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us!</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">What to do!</a></li>
+          <li><a href="#">How to do!</a></li>
+          <li class="divider"></li>
+          <li class="dropdown-header">Relation</li>
+          <li><a href="#">What can you achieve</a></li>
+          <li><a href="#">Wanna Try</a></li>
+        </ul>
+      </li>
+    </ul>
+    
+     
+    <ul class="nav navbar-nav navbar-right">
+    <% if current_user %>
+        <li>Signed in as <span class="label label-success"><%= current_user.name %></span></li>
+        <li>
+       <a href="/signout">Sign Out</a>
       <% else %>
-        <%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in" %>
+       <a href="/auth/twitter"> Sign In </a> </li>
       <% end %>
-    </div>
-    <div>
+           <li><a href="#">Link</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+  </div>   
+</div>
+<div class="container" float= "center">
+            <% if current_user %>
+      <%= form_for :searchtweet, url: tweets_search_path, method: :post do |t| %>
+    <%= t.text_field :hashtag , :size => 50%>
+    <%= t.submit "Search Tweets" %>
+  <% end %><%end%><hr/>
+</div>
     <%= yield %>
-    </div>
+   
   </body>
 </html>

@@ -1,4 +1,5 @@
- <table>
+ <div class="container" class="center-block">
+ <table class="table table-striped">
   <tr>
     <th>Tweet</th>
     <th> Hashtags</th>
@@ -6,8 +7,10 @@
   </tr>
  
     <% @tweet.each do |tweet| %>
-  <tr><td>    <%=tweet.user["location"]%></td>
-  <td> <img src=<%=tweet.user["profile_image_url"]%>/> </td>
+  <tr><td class="text-primary" class="bg-primary">    <%=tweet.user["location"]%></td>
+  <td> <img   class="img-circle"src=<%=tweet.user["profile_image_url"]%>/> </td>
   <td>    <%=tweet.user["source"]%></td>
   <td>    <%=tweet.text%></td></tr>
 <%end%>
+</table>
+</div>
