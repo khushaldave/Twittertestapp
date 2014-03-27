@@ -4,12 +4,14 @@
     <table>
   <tr>
     <th>Tweet</th>
+    <th> Hashtags</th>
     <th>Source</th>
   </tr>
  
     <% @user_timeline.each do |tweet| %>
-  <tr><td>    <%=tweet.user["location"]%></td></tr>
-<tr><td>    <%=tweet.text%></td></tr>
+  <tr><td>    <%=tweet.user["location"]%></td>
+  <td>    <%=tweet.hashtags["text"]%></td>
+  <td>    <%=tweet.text%></td></tr>
 <%end%>
 
  

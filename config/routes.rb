@@ -7,7 +7,7 @@ TwitterExample::Application.routes.draw do
  
   resources :tweets, only: [:new, :create]
   resources :sessions, only: [:create, :destroy]
-  resource :home, only: [:show]
+  resource :home, only: [:show, :index]
  
-  root to: "home#show"
+  root to: "home#index"
 end

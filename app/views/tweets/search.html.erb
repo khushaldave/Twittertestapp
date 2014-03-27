@@ -1,10 +1,13 @@
-<table>
+ <table>
   <tr>
     <th>Tweet</th>
+    <th> Hashtags</th>
     <th>Source</th>
   </tr>
  
-    <% @tweet.each do |tweets| %>
-  <tr><td>    <%=tweets.user["location"]%></td></tr>
-<tr><td> <%=tweets.text%> </td></tr>
+    <% @tweet.each do |tweet| %>
+  <tr><td>    <%=tweet.user["location"]%></td>
+  <td> <img src=<%=tweet.user["profile_image_url"]%>/> </td>
+  <td>    <%=tweet.user["source"]%></td>
+  <td>    <%=tweet.text%></td></tr>
 <%end%>
