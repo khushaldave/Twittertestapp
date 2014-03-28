@@ -42,9 +42,10 @@
     <% if current_user %>
         <li>Signed in as <span class="label label-success"><%= current_user.name %></span></li>
         <li>
-       <a href="/signout">Sign Out</a>
+       <a href="/signout">Sign Out</a></li>
       <% else %>
-       <a href="/auth/twitter"> Sign In </a> </li>
+       
+       <a href="/auth/twitter"> <%= image_tag "sign-in-with-twitter.png" %></a> 
       <% end %>
            <li><a href="#">Link</a></li>
       <li class="dropdown">
@@ -62,7 +63,7 @@
 </div>
   </div>   
 </div>
-<div class="container" float= "center">
+<div class="container">
             <% if current_user %>
       <%= form_for :searchtweet, url: tweets_search_path, method: :post do |t| %>
     <%= t.text_field :hashtag , :size => 50%>

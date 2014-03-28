@@ -1,15 +1,19 @@
  <div class="container" class="center-block">
+ <h2>Showing results for:- <%= params[:searchtweet][:hashtag]%></h2>
  <table class="table table-striped">
   <tr>
-    <th>Tweet</th>
-    <th> Hashtags</th>
-    <th>Source</th>
+    <th>Location</th>
+    <th> Profile Pic</th>
+    <th>Number of Followers</th>
+    <th>Num of Status </th>
+    <th> Tweet Text</th>
   </tr>
  
     <% @tweet.each do |tweet| %>
   <tr><td class="text-primary" class="bg-primary">    <%=tweet.user["location"]%></td>
   <td> <img   class="img-circle"src=<%=tweet.user["profile_image_url"]%>/> </td>
-  <td>    <%=tweet.user["source"]%></td>
+  <td>  <%=tweet.user["friends_count"]%></td>
+  <td>  <%=tweet.user["statuses_count"]%></td>
   <td>    <%=tweet.text%></td></tr>
 <%end%>
 </table>

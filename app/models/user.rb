@@ -39,7 +39,7 @@ def search(hashtag)
    config.access_token        = oauth_token
    config.access_token_secret = oauth_secret
     end
-    tweets = client.search(hashtag,{})
+    tweets = client.search(hashtag,{:lang => "en" , :count => 100 })
     return tweets
   end
 
