@@ -66,8 +66,9 @@
 <div class="container">
             <% if current_user %>
       <%= form_for :searchtweet, url: tweets_search_path, method: :post do |t| %>
-    <%= t.text_field :hashtag , :size => 50%>
-    <%= t.submit "Search Tweets" %>
+  <h2 style="font-weight:bold;font-size:24px;" ><%= t.text_field :hashtag , :size => 80%>
+  <button type="#{<% t.submit %>}" class="btn btn-primary" >Search</button> </h2>
+   
   <% end %><%end%><hr/>
 </div>
     <%= yield %>
