@@ -39,8 +39,8 @@ def search(hashtag)
    config.access_token        = oauth_token
    config.access_token_secret = oauth_secret
     end
-    geoloc="53.349740,-6.256845,500mi"
-    tweets = client.search(hashtag,{:geocode => geoloc ,:lang => "en" , :count => 15 })
+    geoloc="53.349740,27.256845,10000mi"
+    tweets = client.search(hashtag,{:geocode => geoloc ,:lang => "en" , :count => 50 })
     return tweets
   end
 

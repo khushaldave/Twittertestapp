@@ -47,3 +47,29 @@
 
 
     </div><!-- End Carousel -->
+
+
+
+
+
+
+
+
+     <% @tweets.each do |tweet| %>
+    <%if(tweet.user.location.present?)%>
+  <tr><td class="text-primary" class="bg-primary">    <%=tweet.user["location"]%></td>
+  <td> <img   class="img-circle"src=<%=tweet.user["profile_image_url"]%>/> </td>
+  <td>  <%=tweet.user["friends_count"]%></td>
+  <td>  <%=tweet.user["statuses_count"]%></td>
+  <td>    <%=tweet.text%></td></tr>
+  <td>  <%=tweet.user["statuses_count"]%></td>
+    <td>  <%=tweet.user["statuses_count"]%></td>
+  <%else%>
+<%end%>
+<%end%>
+
+
+
+:profile_pic => tweet.user["profile_image_url"],
+
+<td> <img   class="img-circle"src=<%=tweet["profile_pic"]["host"] + tweet["profile_pic"]["path"]%>/> </td>

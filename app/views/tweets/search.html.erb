@@ -5,30 +5,33 @@
 </div>
  <div class="container" class="center-block">
  <h2>Showing results for:- <%= params[:searchtweet][:hashtag]%></h2>
- <table class="table table-striped">
+ <table class="table table-striped" class="hidden">
   <tr>
     <th>Location</th>
-    <th> Profile Pic</th>
+     <th>Profile Image</th>
     <th>Number of Followers</th>
     <th>Num of Status </th>
     <th> Tweet Text</th>
+     <th>Lattitude</th>
+    <th> Longitude</th>
   </tr>
  
-    <% @tweets.each do |tweet| %>
-  <tr><td class="text-primary" class="bg-primary">    <%=tweet.user["location"]%></td>
-  <td> <img   class="img-circle"src=<%=tweet.user["profile_image_url"]%>/> </td>
-  <td>  <%=tweet.user["friends_count"]%></td>
-  <td>  <%=tweet.user["statuses_count"]%></td>
-  <td>    <%=tweet.text%></td></tr>
+    <% @tweet.each do |tweet| %>
+  <tr><td class="text-primary" class="bg-primary">    <%=tweet[:location]%></td>
+<td> <img   class="img-circle"src=<%=tweet[:profile_pic]%>/> </td>
+  <td>  <%=tweet[:friends_count]%></td>
+  <td>  <%=tweet[:status_count]%></td>
+  <td>    <%=tweet[:text]%></td>
+  <td>  <%=tweet[:lat]%></td>
+    <td>  <%=tweet[:lng]%></td>
+    </tr>
 <%end%>
 </table>
-<h2><%= @loc.to_json %></h2>
-
-</div>
  <script type="text/javascript">
     handler = Gmaps.build('Google');
+
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @loc.to_json %>);
+  markers = handler.addMarkers(<%=raw @tweet.to_json %>);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
 });
