@@ -3,13 +3,20 @@
   <head>
     <title>Twitter Auth Example App</title>
      <!-- Bootstrap -->
-    <link href="css/" rel="stylesheet">
     <%= javascript_include_tag "jquery-1.11.0.min.js", "data-turbolinks-track" => true %>
     <%= stylesheet_link_tag    "bootstrap.min.css", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "bootstrap.min.js", "data-turbolinks-track" => true %>
+     <%= javascript_include_tag "application" %>
+    <%= yield :scripts%>
     <%= csrf_meta_tags %>
+
   </head>
   <body>
+ <!-- <div style="position: fixed; z-index: -99; width: 100%; height: 100%">
+  <iframe frameborder="0" height="100%" width="100%" 
+    src="https://www.youtube.com/embed/DSLgAsrcpGQ?autoplay=1&controls=1&loop=1&rel=0&showinfo=0&autohide=1&wmode=transparent&hd=1">
+  </iframe>
+</div>-->
    <div>
   <div class="navbar navbar-default">
   <div class="navbar-header">
