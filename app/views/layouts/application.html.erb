@@ -70,6 +70,14 @@
 </div>
   </div>   
 </div>
+
+<% if flash[:notice] %>
+<div id="container">
+    <div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <%= flash[:notice] %>.
+</div> </div>
+  <% end %>
 <div class="container">
             <% if current_user %>
       <%= form_for :searchtweet, url: tweets_search_path, method: :post do |t| %>

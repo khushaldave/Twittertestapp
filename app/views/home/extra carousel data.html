@@ -73,3 +73,15 @@
 :profile_pic => tweet.user["profile_image_url"],
 
 <td> <img   class="img-circle"src=<%=tweet["profile_pic"]["host"] + tweet["profile_pic"]["path"]%>/> </td>
+
+
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @tweet.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
