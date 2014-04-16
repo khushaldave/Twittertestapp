@@ -40,10 +40,21 @@ def search(hashtag)
    config.access_token_secret = oauth_secret
     end
     geoloc="53.349740,27.256845,10000mi"
-    tweets = client.search(hashtag,{:geocode => geoloc ,:lang => "en" , :count => 20 })
+    tweets = client.search(hashtag,{:geocode => geoloc ,:lang => "en" , :count => 25 })
     return tweets
   end
 
+def searcht(hashtag)
+   client = Twitter::REST::Client.new do |config|
+   config.consumer_key        = Rails.application.config.twitter_key
+   config.consumer_secret     = Rails.application.config.twitter_secret
+   config.access_token        = "104530869-eH4dtBYKv715t86K0vzLf2zAWLEHmrkt7YoZ21G4"
+   config.access_token_secret = "UWYk13H2egWESZjcOd7RfB4BGuPiuIk7FDevYZ85QZZVt"
+    end
+    geoloc="53.349740,27.256845,10000mi"
+    tweets = client.search(hashtag,{:geocode => geoloc ,:lang => "en" , :count => 25 })
+    return tweets
+  end
 
 def get_followers()
    client = Twitter::REST::Client.new do |config|
