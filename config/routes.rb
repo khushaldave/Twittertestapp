@@ -1,4 +1,5 @@
 TwitterExample::Application.routes.draw do
+  get "twittertweets/search"
   get "userfeed/create"
   post "tweets/search"
   get "tweets/search"

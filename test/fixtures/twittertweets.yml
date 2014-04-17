@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tweet_id: MyString
+  profile_pic: MyString
+  friends_count: 1
+  status_count: 1
+  tweet_text: MyString
+  lattitude: 1.5
+  longitude: 1.5
+  source: MyString
+  retweet_count: 1
+  location: MyString
+
+two:
+  tweet_id: MyString
+  profile_pic: MyString
+  friends_count: 1
+  status_count: 1
+  tweet_text: MyString
+  lattitude: 1.5
+  longitude: 1.5
+  source: MyString
+  retweet_count: 1
+  location: MyString
