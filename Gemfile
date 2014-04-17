@@ -10,10 +10,9 @@ gem "twitter", "~> 5.3.1"
 gem "omniauth-twitter", "~> 1.0.1"
 gem 'geocoder'
 gem 'gmaps4rails'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-
+gem "pg"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
