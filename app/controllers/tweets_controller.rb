@@ -61,7 +61,9 @@ class TweetsController < ApplicationController
               :friends_count => tweet.user.friends_count,
               :lat => lattitude,
               :lng => longitude,
-              :Source => ActionController::Base.helpers.strip_tags(source)
+              :Source => ActionController::Base.helpers.strip_tags(source),
+              :retweet_count =>tweet.retweet_count,
+              :tweet_id => tweet.id
             }
              @twittertweet<<
             {

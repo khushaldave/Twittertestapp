@@ -1,0 +1,7 @@
+<div class="container">
+            <% if current_user %>
+      <%= form_for :searchtweet, :html => {:id=> 'search_tweet'} ,url: twittertweets_search_path, method: :post , :remote=>true  do |t| %>
+  <h2 style="font-weight:bold;font-size:24px;" ><%= t.text_field :hashtag , :size => 80%>
+  <button type="#{<% t.submit %>}" class="btn btn-primary" >Search</button> </h2>
+  <% end %><%end%><hr/>
+</div>

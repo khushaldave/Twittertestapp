@@ -1,0 +1,35 @@
+<div id="container">
+<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+  <li class="active"><a href="#home" data-toggle="tab">Analyze</a></li>
+  <li class=""><a href="#view_sources" data-toggle="tab" >View Sources</a></li>
+  <li class=""><a href="#GoogleMaps" data-toggle="tab" onclick="javascript:renderHighCharts()"> Identify Sources</a></li>
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      Want More !<span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="#dropdown1" data-toggle="tab">Most active locations</a></li>
+      <li class="divider"></li>
+      <li><a href="#dropdown2" data-toggle="tab">Retweets</a></li>
+    </ul>
+  </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="home">
+  <%= render "tweetsearch"%>
+  <div id="tweets_view"></div>
+  </div>
+  <div class="tab-pane fade " id="view_sources">
+    <h2>Search saved tweets</h2>
+ </div>
+  <div class="tab-pane fade " id="GoogleMaps">
+    <h2>Identify various sources</h2>
+    <div id="container"><div id="highchart" style='width: 90%; height: 400px;'></div></div>
+  </div>
+  <div class="tab-pane fade" id="dropdown1">
+    <h2> Check out the most active locations</h2>
+  </div>
+  <div class="tab-pane fade" id="dropdown2">
+    <h2>Catch the dynamics</h2>
+  </div>
+</div></div>

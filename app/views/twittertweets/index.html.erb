@@ -1,2 +1,50 @@
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
   <%= javascript_include_tag "twittertweets" %>
+    <%= javascript_include_tag "sourcehighchart" %>
+
+  <%= render "tabbedPanel"%>
+
+
+ <script type="text/javascript">
+function renderHighCharts() {
+    $('#highchart').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Browser market shares at a specific website, 2010'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            data: [                
+     <% @tweetssources.each do |t|%>    
+        ["<%=raw t[0] %>",<%=raw t[1]%>],
+      <%end%> ]                  
+        }]
+    });
+}
+    
+
+ </script>
+
+
   

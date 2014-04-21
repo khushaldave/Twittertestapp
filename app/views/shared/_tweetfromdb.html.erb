@@ -1,0 +1,26 @@
+<table class="table table-striped" style='width: 100%;'>
+<tr>
+<th>Location</th>
+     <th>Profile Image</th>
+    <th>Number of Followers</th>
+    <th>Num of Status </th>
+    <th> Tweet Text</th>
+     <th>Lattitude</th>
+    <th> Longitude</th>
+     <th> Source</th>
+     <th> Retweet_count</th>
+     <th> Tweet ID</th></tr>
+<% for tweet in @tweets %>
+<tr>
+<td class="text-primary" class="bg-primary">    <%=tweet.location%></td>
+<td> <img   class="img-circle"src=<%=tweet.profile_pic%>/> </td>
+  <td> <%=tweet.friends_count%></td>
+  <td>  <%=tweet.status_count%></td>
+  <td>    <%=tweet.tweet_text%></td>
+  <td>  <%=tweet.lattitude%></td>
+    <td>  <%=tweet.longitude%></td>
+     <td>  <%=tweet.source%></td>
+     <td>  <%=tweet.retweet_count%></td>
+     <td>  <%=tweet.tweet_id%></td></tr>
+     <% end %>
+</table>
