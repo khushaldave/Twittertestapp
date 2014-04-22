@@ -1,13 +1,10 @@
-<table class="table table-striped" style='width: 100%;'>
+<table class="table table-striped" id="datatable" style='width: 90%; display:none;'>
 <tr>
 <th>Sources</th>
      <th>Count</th>
-<% for tweet in @tweetssources %>
+<% for tweet in @ThisHashSource %>
 <tr>
 <td class="text-primary" class="bg-primary">    <%=tweet[0]%></td>
 <td> <%=tweet[1]%> </td>
      <% end %>
 </table>
-<div id="data"><% for tweet in @tweetssources %>
-['<%=tweet[0]%>',<%=tweet[1]%>],
-     <% end %></div>

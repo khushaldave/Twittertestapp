@@ -1,13 +1,11 @@
-    <script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="http://code.highcharts.com/modules/data.js"></script>
   <%= javascript_include_tag "twittertweets" %>
     <%= javascript_include_tag "sourcehighchart" %>
-
   <%= render "tabbedPanel"%>
-
-
  <script type="text/javascript">
-function renderHighCharts() {
+$("#view_chart").click(function() {
     $('#highchart').highcharts({
         chart: {
             plotBackgroundColor: null,
@@ -15,7 +13,7 @@ function renderHighCharts() {
             plotShadow: false
         },
         title: {
-            text: 'Browser market shares at a specific website, 2010'
+            text: 'Sources of Tweets'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -34,17 +32,57 @@ function renderHighCharts() {
         },
         series: [{
             type: 'pie',
-            name: 'Browser share',
+            name: 'Tweet Sources',
             data: [                
      <% @tweetssources.each do |t|%>    
         ["<%=raw t[0] %>",<%=raw t[1]%>],
       <%end%> ]                  
         }]
     });
-}
-    
+});
+$("#view_chart_now").click(function () {
+    $('#source').highcharts({
+        data: {
+            table: document.getElementById('datatable')
+        },
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Tweet Sources for this hashtag'
+        },
+        yAxis: {
+            allowDecimals: false,
+            title: {
+                text: 'Num of tweets'
+            }
+        },
+        tooltip: {
+            formatter: function() {
+                return '<b>'+ this.series.name +'</b><br/>'+
+                    this.point.y +' '+ this.point.name.toLowerCase();
+            }
+        }
+    });
+});
 
- </script>
 
 
-  
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'map'} }, function(){
+  if(navigator.geolocation)
+    navigator.geolocation.getCurrentPosition(displayOnMap);
+});
+
+function displayOnMap(position){
+  var marker = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  });
+  handler.map.centerOn(marker);
+};
+
+
+
+
+</script>  

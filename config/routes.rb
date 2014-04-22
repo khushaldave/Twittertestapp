@@ -7,6 +7,7 @@ TwitterExample::Application.routes.draw do
   end
   #get "twittertweets/search"
   get "twittertweets/search"
+  get "twittertweets/getSources"
   post "twittertweets/search"
   get "twittertweets/index"
   get "userfeed/create"

@@ -1,8 +1,8 @@
 <div id="container">
 <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-  <li class="active"><a href="#home" data-toggle="tab">Analyze</a></li>
-  <li class=""><a href="#view_sources" data-toggle="tab" >View Sources</a></li>
-  <li class=""><a href="#GoogleMaps" data-toggle="tab" onclick="javascript:renderHighCharts()"> Identify Sources</a></li>
+  <li class="active"><a href="#home" data-toggle="tab">FInd Tweets</a></li>
+  <li class=""><a href="#view_sources" data-toggle="tab" >Find All Sources</a></li>
+  <li class=""><a href="#GoogleMaps" data-toggle="tab">View on Maps</a></li>
   <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
       Want More !<span class="caret"></span>
@@ -20,14 +20,18 @@
   <div id="tweets_view"></div>
   </div>
   <div class="tab-pane fade " id="view_sources">
-    <h2>Search saved tweets</h2>
+<button type="submit" class="btn btn-primary" id="view_chart_now">View Sources for this tag</button><div class="span5" id="source">
+    <!--Sidebar content-->
+    </div>  
  </div>
+
   <div class="tab-pane fade " id="GoogleMaps">
-    <h2>Identify various sources</h2>
-    <div id="container"><div id="highchart" style='width: 90%; height: 400px;'></div></div>
-  </div>
+   <div class="container"><div id="map" style='width: 90%; height: 400px;'></div>
+  </div></div>
   <div class="tab-pane fade" id="dropdown1">
-    <h2> Check out the most active locations</h2>
+    <button type="submit" class="btn btn-primary" id="view_chart">View all Sources</button>
+    <div class="container"><div id="highchart" style="width: 90%; hieght: 600px;"></div>
+    </div>
   </div>
   <div class="tab-pane fade" id="dropdown2">
     <h2>Catch the dynamics</h2>

@@ -166,4 +166,11 @@ $(function(){obj.init();
     
 });
 		</script>
-</html>
+
+
+
+
+
+<% @tweetssources.each do |t|%>    
+        ["<%=raw t[0] %>",<%=raw t[1]%>]
+      <%end%> ] 
