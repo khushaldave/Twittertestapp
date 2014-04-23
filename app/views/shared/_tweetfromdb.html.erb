@@ -1,4 +1,4 @@
-<div class="container"><table class="table table-striped" style='width: 80%;'>
+<div class="container" ><table class="table table-striped" style='width: 100%;'>
 <tr>
 <th>Location</th>
      <th>Profile Image</th>
@@ -8,8 +8,7 @@
      <th>Lattitude</th>
     <th> Longitude</th>
      <th> Source</th>
-     <th> Retweet_count</th>
-     <th> Tweet ID</th></tr>
+     <th> Retweet_count</th></tr>
 <% for tweet in @tweets %>
 <tr>
 <td class="text-primary" class="bg-primary">    <%=tweet.location%></td>
@@ -20,8 +19,25 @@
   <td>  <%=tweet.lattitude%></td>
     <td>  <%=tweet.longitude%></td>
      <td>  <%=tweet.source%></td>
-     <td>  <%=tweet.retweet_count%></td>
-     <td>  <%=tweet.tweet_id%></td></tr>
+     <td>  <%=tweet.retweet_count%></td></tr>
+     <% end %>
+</table>
+
+
+<table class="table table-striped" style='width: 100%; display:none;' id="tweetstable" >
+<tr><th>Picture</th>
+    <th>infowindow</th>
+     <th>lat</th>
+    <th>lng</th></tr>
+<% for tweet in @tweets %>
+<tr>
+<td> <%=tweet.profile_pic%> </td>
+  <td> <img src="<%=tweet.profile_pic%>" class="img-circle"/><%=tweet.tweet_text%></b></td>
+  <td>  <%=tweet.lattitude%></td>
+    <td>  <%=tweet.longitude%></td>
      <% end %>
 </table>
 </div>
+
+
+  

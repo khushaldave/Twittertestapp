@@ -1,14 +1,14 @@
 <div id="container">
-<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+<ul class="nav nav-pills" style="margin-bottom: 15px;">
   <li class="active"><a href="#home" data-toggle="tab">FInd Tweets</a></li>
-  <li class=""><a href="#view_sources" data-toggle="tab" >Find All Sources</a></li>
-  <li class=""><a href="#GoogleMaps" data-toggle="tab">View on Maps</a></li>
+  <li class=""><a href="#view_sources" data-toggle="tab" id="view_all_sources">Find Sources</a></li>
+  <li class=""><a href="#GoogleMaps" data-toggle="tab" id="googlemaps">View on Maps</a></li>
   <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="view_chart">
       Want More !<span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-      <li><a href="#dropdown1" data-toggle="tab">Most active locations</a></li>
+      <li><a href="#dropdown1" data-toggle="tab">View all Sources</a></li>
       <li class="divider"></li>
       <li><a href="#dropdown2" data-toggle="tab">Retweets</a></li>
     </ul>
@@ -20,7 +20,7 @@
   <div id="tweets_view"></div>
   </div>
   <div class="tab-pane fade " id="view_sources">
-<button type="submit" class="btn btn-primary" id="view_chart_now">View Sources for this tag</button><div class="span5" id="source">
+<div class="container" id="source">
     <!--Sidebar content-->
     </div>  
  </div>
@@ -29,8 +29,7 @@
    <div class="container"><div id="map" style='width: 90%; height: 400px;'></div>
   </div></div>
   <div class="tab-pane fade" id="dropdown1">
-    <button type="submit" class="btn btn-primary" id="view_chart">View all Sources</button>
-    <div class="container"><div id="highchart" style="width: 90%; hieght: 600px;"></div>
+    <div class="container"><div id="highchart" style="width: 80%; height: 600px;"></div>
     </div>
   </div>
   <div class="tab-pane fade" id="dropdown2">
