@@ -9,8 +9,8 @@ class TwittertweetsController < ApplicationController
   	 @tweets = Twittertweet.where('tweet_text ilike ?', '%' + hashtag + '%' )
   	 @tweetssources = Twittertweet.group(:source).count
   	 @ThisHashSource=Twittertweet.where('tweet_text ilike ?', '%' + hashtag +'%').group(:source).count
-    # _data=[]
-     #@tweetssources.each do |t|
+    #  _data=[]
+     # @tweetssources.each do |t|
      #_data  << [t.source,t.count]
      #end
      respond_to do |format|
