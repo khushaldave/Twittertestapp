@@ -1,0 +1,132 @@
+<%= javascript_include_tag "killercarousel.js", "data-turbolinks-track" => true %>
+<%= stylesheet_link_tag    "killercarousel.css", media: "all", "data-turbolinks-track" => true%>
+
+<style type="text/css">
+
+            body {
+                font-family: arial, sans-serif;
+                color: #444;
+                font-size: 16px;
+                padding:0px;
+                margin:0px;
+            }
+
+            p {
+                line-height: 20px;
+            }
+
+            code {
+                font-weight: bold;
+                color: #f44;;
+            }
+            a {
+                color:#3d8dde;
+            }
+
+            #wrapper {
+                padding:10px;
+            }
+        </style>
+
+        <!-- Styles for the Carousel -->
+        <style type = "text/css">
+
+            /* CSS for images inside item wrapper */
+            .kc-item img {
+                position:absolute;
+                pointer-events: none;   /* Make images non-selectable. */
+                width:100%;             /* Make images expand to wrapper size (used in 2d modes). */
+            }
+
+        </style>
+
+        <script type = "text/javascript">
+            // Create the carousel.
+            $(function() {
+                $('.kc-wrap').KillerCarousel({
+                    // Default natural width of carousel.
+                    width: 800,
+                    // Item spacing in 3d (has CSS3 3d) mode.
+                    spacing3d: 120,
+                    // Item spacing in 2d (no CSS3 3d) mode. 
+                    spacing2d: 120,
+                    showShadow: true,
+                    showReflection: true,
+                    // Looping mode.
+                    infiniteLoop: true,
+                    // Scale at 75% of parent element.
+                    autoScale: 100
+                });
+            });
+        </script>
+         
+  <div class="container">
+<div class = "kc-wrap">
+                <!-- Carousel items follow -->
+                
+                <div class="kc-item">
+                    <img src="images/7.png" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/8.png" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/9.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/10.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/11.jpg" alt = " "  height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/1.png" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/2.png" alt = " " height="250">
+                </div> 
+                <div class="kc-item">
+                    <img src="images/3.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/4.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/5.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/6.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/12.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/13.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/14.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/15.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/16.jpg" alt = " " height="250">
+                </div>
+                 
+                <div class="kc-item">
+                    <img src="images/18.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/19.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/20.jpg" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/21.png" alt = " " height="250">
+                </div>
+                <div class="kc-item">
+                    <img src="images/22.jpg" alt = " " height="250">
+                </div>
+            </div>
+</div>
