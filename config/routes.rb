@@ -5,8 +5,9 @@ TwitterExample::Application.routes.draw do
       get "twittertweets/search"
     end
   end
+    mount CookieAlert::Engine => "/cookie-alert"
   #get "twittertweets/search"
-  get "twittertweets/search"
+  post "twittertweets/search"
   get "twittertweets/getSources"
   post "twittertweets/search"
   get "twittertweets/index"

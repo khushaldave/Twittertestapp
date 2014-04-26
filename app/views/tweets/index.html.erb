@@ -1,7 +1,8 @@
-<div class="container">
+<div class="container" style="margin-top: 5%;">
             <% if current_user %>
-      <%= form_for :searchtweet, :html => {:id=> 'search_tweet'} ,url: tweets_search_path, method: :post  do |t| %>
-  <h2 style="font-weight:bold;font-size:24px;" ><%= t.text_field :hashtag , :size => 80 %>
-  <button type="#{<% t.submit %>}" class="btn btn-primary" >Search</button> </h2>
-  <% end %><%end%><hr/>
+      <form id="search_tweet" method="post" action="search" class="form-inline" role="form">
+      <div class="col-sm-10">
+      <input id="hashtag" name="hashtag" minlength="2" type="text" class="form-control" placeholder="Search Tweets based on hashtags" required />
+      </div>
+  <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Search tweets based on Hashtags">Search</button></form><%end%><hr/>
 </div>

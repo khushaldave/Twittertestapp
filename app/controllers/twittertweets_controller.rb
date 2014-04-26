@@ -5,18 +5,18 @@ class TwittertweetsController < ApplicationController
   end
 
   def search
-  	hashtag=params[:searchtweet][:hashtag]
+  	hashtag=params[:hashtag]
   	 @tweets = Twittertweet.where('tweet_text ilike ?', '%' + hashtag + '%' )
   	 @tweetssources = Twittertweet.group(:source).count
   	 @ThisHashSource=Twittertweet.where('tweet_text ilike ?', '%' + hashtag +'%').group(:source).count
+     respond_to do |format|
+     format.html {redirect_to @tweets.index}
+     format.js     
     #  _data=[]
      # @tweetssources.each do |t|
      #_data  << [t.source,t.count]
      #end
-     respond_to do |format|
-     format.html {redirect_to @tweets.index}
-     format.js 
-    end
+   end
 end
  def getSources
  	@sources=[]

@@ -11,7 +11,7 @@
      <th> Retweet_count</th></tr>
 <% for tweet in @tweets %>
 <tr>
-<td class="text-primary" class="bg-primary">    <%=tweet.location%></td>
+<td class="text-primary">    <%=tweet.location%></td>
 <td> <img   class="img-circle"src=<%=tweet.profile_pic%>/> </td>
   <td> <%=tweet.friends_count%></td>
   <td>  <%=tweet.status_count%></td>
@@ -32,7 +32,7 @@
 <% for tweet in @tweets %>
 <tr>
 <td> <%=tweet.profile_pic%> </td>
-  <td> <img src="<%=tweet.profile_pic%>" class="img-circle"/><%=tweet.tweet_text%></b></td>
+  <td> <img src="<%=tweet.profile_pic%>" class="img-circle"/><%=tweet.tweet_text%></b> <i>Location : <%=tweet.location%></i></td>
   <td>  <%=tweet.lattitude%></td>
     <td>  <%=tweet.longitude%></td>
      <% end %>

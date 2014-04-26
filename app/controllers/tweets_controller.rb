@@ -3,10 +3,7 @@ class TweetsController < ApplicationController
   def new
   end
 
-  def create
-    current_user.tweet(twitter_params[:message])
  
-  end
 
   def twitter_params
     params.require(:tweet).permit(:message)
@@ -40,7 +37,8 @@ class TweetsController < ApplicationController
   end
 
   def search
-    @tweets=current_user.search(tweet_params[:hashtag])
+    hashtag=params[:hashtag]
+    @tweets=current_user.search(hashtag)
    # if @tweet.nil?
     #  flash.now[:notice] = "Soory no tweets Found !"
      #  render "search"
@@ -90,9 +88,4 @@ class TweetsController < ApplicationController
     end
    end
 
-
-  def tweet_params
-    params.require(:searchtweet).permit(:hashtag)
-  end
-  
 end

@@ -36,6 +36,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    cookie_alert (0.0.4)
+      jquery-rails
+      rails (~> 4.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     equalizer (0.0.9)
@@ -146,6 +149,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  cookie_alert
   geocoder
   gmaps4rails
   jbuilder (~> 1.2)

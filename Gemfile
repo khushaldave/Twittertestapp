@@ -6,7 +6,7 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 
-
+ gem "cookie_alert"
 
 gem "twitter", "~> 5.3.1"
 gem "omniauth-twitter", "~> 1.0.1"
@@ -49,3 +49,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Added for heroku deployment
+
+#gem 'rails_12factor', group: :production
+#ruby "1.9.3"
