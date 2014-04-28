@@ -1,8 +1,8 @@
 <div class="container">
             <% if current_user %>
       
-  <form id="search_tweet" method="post" action="search" data-remote="true" class="form-inline" role="form"><input id="hashtag" name="hashtag" minlength="2" type="text" required class="form-control" placeholder="Search Tweets based on hashtags" size="150"/>
+  <form id="search_tweet" method="post" action="search" data-remote="true" class="form-inline" role="form">
+  <input id="hashtag" name="hashtag" minlength="2" type="text" required class="form-control" placeholder="Search Tweets based on hashtags" size="121"/>
   <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Search tweets based on Hashtags">Search</button></form>
   <%end%><hr/>
-  <p id="errormsg"></p>
 </div>

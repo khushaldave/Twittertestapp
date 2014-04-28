@@ -13,7 +13,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-  
+  <a href="#maincontent" class="sr-only">Skip to main content</a>
    <div>
   <div class="navbar navbar-default navbar-fixed-top"  role="navigation">
   <div class="navbar-header">
@@ -22,19 +22,19 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">TweetGeek</a>
+    <a class="navbar-brand" href="http://localhost:3000">TweetGeek</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="http://localhost:3000">Home</a></li>
-      <li><a href="/about_us">About Us!</a></li>
+      <li><a href="http://localhost:3000/tweets/index">Search Live</a></li>
+    <li><a href="/twittertweets/index">Want More</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help<b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="#">What to do!</a></li>
           <li><a href="#">How to do!</a></li>
           <li class="divider"></li>
-          <li class="dropdown-header">Relation</li>
+          <li class="dropdown-header">Some More</li>
           <li><a href="#">What can you achieve</a></li>
           <li><a href="#">Wanna Try</a></li>
         </ul>
@@ -51,34 +51,44 @@
        
        <a href="/auth/twitter"> <%= image_tag "sign-in-with-twitter.png" %></a> 
       <% end %>
-           <li><a href="/twittertweets/index">Search DB</a></li>
-
+         
+    <li><a href="/about_us">About Us!</a></li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Accessiblity<b class="caret"></b></a>
-        
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact Us<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Send a Query</a></li>
+          <li class="divider"></li>
+          <li class="dropdown-header">Plan</li>
+          <li><a href="#">Subscribe</a></li>
+        </ul>
       </li>
     </ul>
   </div>
 </div>
   </div>
   <div class="container">   
+<% if current_user %>
 
 <% if flash[:notice] %>
 <div id="container">
     <div class="alert alert-success">
-  <button type="button" class="close" data-dismiss="alert">×</button>
+  <button type="button" class="close" data-dismiss="alert">X</button>
   <%= flash[:notice] %>
 </div> </div>
-  <% end %></div>
+  <% end %>
+  <%end%></div>
+
+
+  <div id="maincontent">
     <%= yield %>
+</div>
 
 
-
-    <div class="container">
+    <div class="footer">
 </div> 
 <div class="navbar-fixed-bottom" style='background-color: #f5f5f5;'><%= display_cookie_alert %>
-      <div class="container">
-        <p text-primary>Creative Commons Liscence V3.0 <span class="label label-info">@khushaldave</span></p>
+     
+        <span class="text-left">&copy; 2014 TweetsGeek Inc. All rights reserved </span> <p class="label label-info text-right">@khushaldave</p>
       </div>
     </div>
   </body>

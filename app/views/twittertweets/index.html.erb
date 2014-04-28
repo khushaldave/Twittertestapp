@@ -1,3 +1,11 @@
+<style type="text/css">
+  #map img { 
+  max-width: none;
+}
+#map label { 
+  width: auto; display:inline; 
+}
+</style>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="http://code.highcharts.com/modules/data.js"></script>
@@ -86,6 +94,7 @@ function displayOnMap(position){
         infowindow: "You are here !"
   });
  handler.map.centerOn(marker);
+
 }
 
 $("#googlemaps").click(function(){
@@ -103,5 +112,7 @@ $("#googlemaps").click(function(){
         array.push(arrayItem);
     });
 handler.addMarkers(array);
+handler.bounds.extendWith(array);
+  handler.fitMapToBounds();
 });
 </script>  
