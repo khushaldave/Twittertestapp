@@ -6,7 +6,15 @@ module Api
         def search
   	      hashtag=params[:hashtag]
   	      @tweets = Twittertweet.all.where('tweet_text ilike ?', '%' + hashtag + '%' )
-  	     respond_with @tweets
+          if @tweets.blank?
+            @result={
+            :Error_status => "Err27",
+            :Message => "No Data Found for this Query"
+            }
+          respond_with @result
+        else
+          respond_with @tweets
+        end
         end
 
         private

@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def create
+    reset_session
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
     flash[:notice] = "You have successfully logged In"

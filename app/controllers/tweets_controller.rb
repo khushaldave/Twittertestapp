@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   skip_before_filter :verify_authenticity_token
+ rescue_from Exception, :with => :render_404
   def new
   end
 
@@ -36,14 +37,17 @@ class TweetsController < ApplicationController
 
   def search
     hashtag=params[:hashtag]
-    @tweets=current_user.search(hashtag)
-   # if @tweet.nil?
-    #  flash.now[:notice] = "Soory no tweets Found !"
-     #  render "search"
-     #end
-      @tweet=[]
-      @twittertweet=[]
-      @tweets.each do |tweet|
+    client = Twitter::REST::Client.new do |config|
+    config.consumer_key        = Rails.application.config.twitter_key
+    config.consumer_secret     = Rails.application.config.twitter_secret
+    config.access_token        = current_user.oauth_token
+    config.access_token_secret = current_user.oauth_secret
+    end
+    geoloc="53.349740,27.256845,10000mi"
+    @tweets = client.search(hashtag,{:geocode => geoloc ,:lang => "en" , :count => 5 })
+    @tweet=[]
+    @twittertweet=[]
+    @tweets.each do |tweet|
       if(tweet.user.location.present?)
           source=tweet.source.dup
           lattitude=Geocoder.search(tweet.user.location.to_s).first.coordinates.first
@@ -86,4 +90,14 @@ class TweetsController < ApplicationController
     end
    end
 
+private
+
+  def render_404(exception = nil)
+    logger.info "Exception, redirecting: #{exception.message}" if exception
+    flash[:notice] = "Sorry an error has occured"
+    redirect_to root_path
+   end
+ 
+
 end
+ 

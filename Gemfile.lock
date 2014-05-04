@@ -68,6 +68,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     mime-types (1.25.1)
     minitest (4.7.5)
+    mousetrap-rails (1.4.6)
     multi_json (1.9.2)
     multipart-post (2.0.0)
     oauth (0.4.7)
@@ -154,6 +155,7 @@ DEPENDENCIES
   gmaps4rails
   jbuilder (~> 1.2)
   jquery-rails
+  mousetrap-rails
   omniauth-twitter (~> 1.0.1)
   pg
   rails (= 4.0.2)

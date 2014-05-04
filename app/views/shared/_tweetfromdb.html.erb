@@ -1,25 +1,26 @@
-<div class="container" ><table class="table table-striped" style='width: 100%;'>
+<div class="container" ><table class="table table-striped" style='width: 100%;' summary="This table displays the tweets in a tabular fashion. In sequence they are as follows Location,Profile Image,Number of Followers,Num of Status, Tweet Text, Lattitude, Longitude, Source and Retweet_count">
+<CAPTION>Tweet details of evert tweet</CAPTION>
 <tr>
-<th>Location</th>
-     <th>Profile Image</th>
-    <th>Number of Followers</th>
-    <th>Num of Status </th>
-    <th> Tweet Text</th>
-     <th>Lattitude</th>
-    <th> Longitude</th>
-     <th> Source</th>
-     <th> Retweet_count</th></tr>
+<th id="header1">Location</th>
+     <th id="header2">Profile Image</th>
+    <th id="header3">Number of Followers</th>
+    <th id="header4">Num of Status </th>
+    <th id="header5"> Tweet Text</th>
+     <th id="header6">Lattitude</th>
+    <th id="header7"> Longitude</th>
+     <th id="header8"> Source</th>
+     <th id="header9"> Retweet_count</th></tr>
 <% for tweet in @tweets %>
 <tr>
-<td class="text-primary">    <%=tweet.location%></td>
-<td> <img   class="img-circle"src=<%=tweet.profile_pic%>/> </td>
-  <td> <%=tweet.friends_count%></td>
-  <td>  <%=tweet.status_count%></td>
-  <td>    <%=tweet.tweet_text%></td>
-  <td>  <%=tweet.lattitude%></td>
-    <td>  <%=tweet.longitude%></td>
-     <td>  <%=tweet.source%></td>
-     <td>  <%=tweet.retweet_count%></td></tr>
+<td class="text-primary" headers="header1">    <%=tweet.location%></td>
+<td headers="header2"> <img   class="img-circle"src=<%=tweet.profile_pic%>/> </td>
+  <td headers="header3"> <%=tweet.friends_count%></td>
+  <td headers="header4">  <%=tweet.status_count%></td>
+  <td headers="header5">    <%=tweet.tweet_text%></td>
+  <td headers="header6">  <%=tweet.lattitude%></td>
+    <td headers="header7">  <%=tweet.longitude%></td>
+     <td headers="header8">  <%=tweet.source%></td>
+     <td headers="header9">  <%=tweet.retweet_count%></td></tr>
      <% end %>
 </table>
 

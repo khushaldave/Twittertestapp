@@ -5980,7 +5980,7 @@ body { padding-top: 20px; }
         padding-right: 4px \9;
         padding-left: 3px;
         padding-left: 4px \9;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        
  
         margin-bottom: 0;
         -webkit-border-radius: 3px;
@@ -5991,12 +5991,12 @@ body { padding-top: 20px; }
     #custom-search-input button {
         border: 0;
         background: none;
-        /** belows styles are working good */
+        
         padding: 2px 5px;
         margin-top: 2px;
         position: relative;
         left: -28px;
-        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+      
         margin-bottom: 0;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
@@ -6007,3 +6007,108 @@ body { padding-top: 20px; }
     .search-query:focus + button {
         z-index: 3;   
     }
+
+
+
+.panel
+{
+    text-align: center;
+}
+.panel:hover { box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 1px 5px rgba(130, 130, 130, 0.35); }
+.panel-body
+{
+    padding: 0px;
+    text-align: center;
+}
+
+.the-price
+{
+    background-color: rgba(220,220,220,.17);
+    box-shadow: 0 1px 0 #dcdcdc, inset 0 1px 0 #fff;
+    padding: 20px;
+    margin: 0;
+}
+
+.the-price h1
+{
+    line-height: 1em;
+    padding: 0;
+    margin: 0;
+}
+
+.subscript
+{
+    font-size: 25px;
+}
+ 
+.cnrflash
+{
+    
+    position: absolute;
+    top: -9px;
+    right: 4px;
+    z-index: 1; 
+    overflow: hidden; 
+    width: 100px;
+    height: 100px;
+    border-radius: 3px 5px 3px 0;
+}
+.cnrflash-inner
+{
+    
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 145px;
+    height: 145px;
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg); 
+    -moz-transform: rotate(45deg); 
+    -webkit-transform: rotate(45deg); 
+    -webkit-transform-origin: 100% 100%; 
+    -ms-transform-origin: 100% 100%;  
+    -o-transform-origin: 100% 100%; 
+    -moz-transform-origin: 100% 100%; 
+    background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.1) 50%), linear-gradient(0deg, transparent 0%, rgba(1,1,1,.2) 50%);
+    background-size: 4px,auto, auto,auto;
+    background-color: #aa0101;
+    box-shadow: 0 3px 3px 0 rgba(1,1,1,.5), 0 1px 0 0 rgba(1,1,1,.5), inset 0 -1px 8px 0 rgba(255,255,255,.3), inset 0 -1px 0 0 rgba(255,255,255,.2);
+}
+.cnrflash-inner:before, .cnrflash-inner:after
+{
+   
+    content: " ";
+    display: block;
+    position: absolute;
+    bottom: -16px;
+    width: 0;
+    height: 0;
+    border: 8px solid #800000;
+}
+.cnrflash-inner:before
+{
+    left: 1px;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+}
+.cnrflash-inner:after
+{
+    right: 0;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+.cnrflash-label
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    padding-bottom: 5px;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(1,1,1,.8);
+    font-size: 0.95em;
+    font-weight: bold;
+    text-align: center;
+}
+

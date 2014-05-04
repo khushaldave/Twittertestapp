@@ -13,8 +13,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-  <a href="#maincontent" class="sr-only">Skip to main content</a>
-   <div>
+  
+  
+  <a href="#maincontent" class="sr-only" title="You can directly skip to the main content">Skip to main content</a>
+   <div class="container">
   <div class="navbar navbar-default navbar-fixed-top"  role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -22,21 +24,16 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="http://localhost:3000">TweetGeek</a>
+    <a class="navbar-brand" href="http://localhost:3000">TweetGeek </a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="http://localhost:3000/tweets/index">Search Live</a></li>
-    <li><a href="/twittertweets/index">Want More</a></li>
+      <li><%= link_to "Search Live", tweets_index_path, data: { keybinding: 'l' }%></li>
+    <li><%= link_to "Want more !", twittertweets_index_path, data: { keybinding: 'd' }%></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help<b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a href="#">What to do!</a></li>
-          <li><a href="#">How to do!</a></li>
-          <li class="divider"></li>
-          <li class="dropdown-header">Some More</li>
-          <li><a href="#">What can you achieve</a></li>
-          <li><a href="#">Wanna Try</a></li>
+          <li><a href="/home/help">How to do!</a></li>
         </ul>
       </li>
     </ul>
@@ -46,36 +43,35 @@
     <% if current_user %>
         <li>Signed in as <span class="label label-success"><%= current_user.name %></span></li>
         <li>
-       <a href="/signout">Sign Out</a></li>
+        <a href="/signout">Sign Out</a></li>
       <% else %>
        
-       <a href="/auth/twitter"> <%= image_tag "sign-in-with-twitter.png" %></a> 
+       <a href="/auth/twitter"> <%= image_tag "sign-in-with-twitter.png" %></a>
       <% end %>
-         
-    <li><a href="/about_us">About Us!</a></li>
+         <li><a href="#shortcut" class="dropdown-toggle" data-toggle="modal">Accessiblity</a></li>
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact Us<b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More<b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Send a Query</a></li>
+<li><a href="/home/about_us">About Us!</a></li>
+<li><a href="/home/contact_us">Contact Us!</a></li>
           <li class="divider"></li>
+
           <li class="dropdown-header">Plan</li>
-          <li><a href="#">Subscribe</a></li>
+          <li><a href="/home/plans">Subscribe</a></li>
         </ul>
       </li>
     </ul>
   </div>
 </div>
   </div>
-  <div class="container">   
-<% if current_user %>
-
+    
 <% if flash[:notice] %>
-<div id="container">
+ <div class="container" style="margin-top: 5%;">
+<div class="container">
     <div class="alert alert-success">
   <button type="button" class="close" data-dismiss="alert">X</button>
-  <%= flash[:notice] %>
+  <%= flash[:notice]%>
 </div> </div>
-  <% end %>
   <%end%></div>
 
 
@@ -87,9 +83,45 @@
     <div class="footer">
 </div> 
 <div class="navbar-fixed-bottom" style='background-color: #f5f5f5;'><%= display_cookie_alert %>
-     
-        <span class="text-left">&copy; 2014 TweetsGeek Inc. All rights reserved </span> <p class="label label-info text-right">@khushaldave</p>
+     <div class="row">
+      <div class="col-md-1"></div>
+  <div class="col-md-4"><p>Thanks for using!</p><p>&copy; 2014 <span class="label label-primary">TweetsGeek Inc.</span>
+ All rights reserved</p></div>
+  <div class="col-md-5"><p></p> <span class="label label-primary">Marketing</span>
+<span class="label label-success">Strategy</span>
+<span class="label label-info">Prediction</span>
+<span class="label label-warning">Risk Analysis</span>
+<span class="label label-danger">Feedbacks</span></div>
+
+
+  <div class="col-md-2"><a href="#"><p></p> <p class="label label-primary text-right">@khushaldave</p></a></div>
+</div>
+        
+      </div>
+
+<div class="modal fade" id="shortcut" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">ShortCut Keys</h4>
+      </div>
+      <div class="modal-body">
+       <p>Keyboard ShortCuts have been added for accessiblity.</p>
+       <table class="table table-hover">
+       <tr>
+       <th>Sr. No</th><th>Navigation</th><th>Shortcut Key</th>
+       </tr>
+       <tr><td>1.</td><td>Search Live Data</td><td>l</td></tr>
+       <tr><td>2.</td><td>Search DataBase</td><td>d</td></tr>
+       </table> 
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
+  </div>
+</div>
   </body>
 </html>
